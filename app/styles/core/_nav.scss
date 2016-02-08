@@ -1,0 +1,12 @@
+nav {
+  ul {
+    li{
+      a{
+        color: color("white","base");
+        &:hover, &.active{
+          background-color: $ctacolor;
+        }
+      }
+    }
+  }
+}

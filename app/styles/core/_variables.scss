@@ -1,0 +1,26 @@
+/* Main Theme Colors */
+$ctacolor: $link-color;
+$semictacolor: $damp-color;
+$ctahover: lighten($link-color,25%);
+$ghost: rgba(255,255,255,0.7);
+$secondary-shade: lighten($secondary-color,15%);
+
+
+/* Layout */
+$diamanias-gutter: 3rem;
+$box-shadow: $diamanias-gutter / 12 $diamanias-gutter / 8 $diamanias-gutter  $diamanias-gutter / 8 $damp-color;
+
+/* Timings */
+$anima-interval: 0.2s;
+$anima-function: ease-in;
+
+$panel-interval: 0.8s;
+$panel-function: linear;
+
+/* Mixins */
+@mixin vendor($attr, $val){
+  -webkit-#{$attr}: #{$val};
+  -moz-#{$attr}: #{$val};
+  -o-#{$attr}: #{$val};
+  #{$attr}: #{$val};
+}

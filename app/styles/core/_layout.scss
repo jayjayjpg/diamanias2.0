@@ -1,0 +1,52 @@
+/*Body Layout */
+html, body {
+  position: relative;
+  height: 100%;
+  background-color: $secondary-color;
+}
+
+.body-canvas {
+  background-color: transparent;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+p, a, span, li, h1, h2, h3, h4, h5, h6, strong {
+  color: $diamanias-text;
+}
+
+p {
+  font-size: $gutter-width * 0.75;
+}
+h1 {
+  font-size: $gutter-width *2;
+}
+
+h2, .subtitle {
+  font-size: $gutter-width * 1.5;
+}
+
+h3, .subsubtitle {
+  font-size: $gutter-width * 1.2;
+}
+
+h4 {
+  font-size: $gutter-width * 0.6;
+}
+
+.section {
+  position: relative;
+}
+
+.wide-section {
+  padding-bottom: $diamanias-gutter * 2;
+}
+
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+}

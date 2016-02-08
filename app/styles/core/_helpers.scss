@@ -1,0 +1,129 @@
+/* Helper Classes */
+@for $i from 1 through 12 {
+  .fs-#{$i} {
+    font-size: $gutter-width / 2 * $i;
+  }
+  
+  .mt-#{$i} {
+    margin-top: $gutter-width * 4 * $i;
+  }
+  
+  .mb-#{$i} {
+    margin-bottom: $gutter-width * 4 * $i;
+  }
+}
+
+a, button {
+  &.cta, .card &.cta {
+    color: $ctacolor;
+    font-weight: bold;
+    text-transform: uppercase;
+    
+    &.semi-cta {
+      color: $semictacolor;
+    }
+
+    &:hover{
+      color: $ctahover;
+    }
+  }
+}
+
+.img-large {
+  height: $gutter-width * 15;
+  width: auto;
+}
+
+.dyellow-text {
+  color: color("diamanias-yellow","base");
+}
+
+.padding-h-1x {
+  padding: 0 $gutter-width;
+}
+
+.go-up {
+  z-index: 2;
+}
+
+.nav-padding {
+  padding-top: 64px;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.relatived {
+  position: relative;
+}
+
+.top-0 {
+  top: 0;
+}
+
+.max-w100 {
+  max-width: 100%;
+}
+
+.panorama {
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: 0 0;
+  background-size: auto 100%;
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+.opacity-50 {
+  opacity: 0.5;
+  transition: opacity $anima-interval $anima-function;
+}
+
+.width-50 {
+  width: 50%;
+}
+.text-primary-color {
+  color: $diamanias-primary;
+}
+
+.text-hover-white {
+  &:hover {
+    color: $diamanias-text;
+  }
+}
+
+.text-secondary-color {
+  color: $diamanias-secondary;
+}
+
+.bg-primary-color {
+  color: $diamanias-text;
+  background-color: $diamanias-primary;
+}
+
+.bg-secondary-color {
+  color: $diamanias-text;
+  background-color: $diamanias-secondary;
+}
+
+.bg-diamanias-fade {
+  background-color: $diamanias-accent-fade;
+}
+
+.bg-transparent {
+  background-color: transparent;
+}
+
+.bg-accent {
+  color: $diamanias-secondary;
+  background-color: $diamanias-accent;
+  
+  p, h1, h2, h3, h4, h5, h6 {
+    color: $diamanias-secondary;
+  }
+}

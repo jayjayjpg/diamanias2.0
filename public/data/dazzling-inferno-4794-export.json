@@ -1,0 +1,38 @@
+{
+  "chars" : {
+    "joshua" : {
+      "body" : "Joshua is a 28 years old electrical engineering student living in Cologne together with his student colleague Sebastian",
+      "introImg" : "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeUAAAJYCAYAAABcjP5UAAAgAElEQVR42uy9d5hlV3Wn",
+      "slug" : "joshua",
+      "summary" : "A charismatic and funny young man who is known to get his shit straight",
+      "title" : "Joshua",
+      "url" : "/img/josh3600.png"
+    },
+    "kim" : {
+      "body" : "Kim Müller is a 27 years old woman from Berlin, following her PhD studies in Biochemistry. A brilliant student with a promising career that she is, she is tackling one of the most intresting topics in current life science research: schizophrenia. Her stumbling into the other world turns her world upside down - and confronts her with ever new challenges.",
+      "introImg" : "something",
+      "slug" : "kim",
+      "summary" : "Kim has grown to become a dedicated and ambitious scientist, unravelling the mysteries of biology to understand the defect mechanisms of a mental disorder that is far too familiar to her. But there will be an even bigger challenge up ahead her path.",
+      "title" : "Kim",
+      "url" : "/img/kim.png"
+    },
+    "sebastian" : {
+      "body" : "Sebastian Müller is a 27 years old woman from Berlin, following her PhD studies in Biochemistry. A brilliant student with a promising career that she is, she is tackling one of the most intresting topics in current life science research: schizophrenia. Her stumbling into the other world turns her world upside down - and confronts her with ever new challenges.",
+      "introImg" : "something",
+      "slug" : "sebastian",
+      "summary" : "Sebastian has grown to become a dedicated and ambitious scientist, unravelling the mysteries of biology to understand the defect mechanisms of a mental disorder that is far too familiar to her. But there will be an even bigger challenge up ahead her path.",
+      "title" : "Sebastian",
+      "url" : "/img/seb1600.png"
+    }
+  },
+  "comicPanels" : {
+    "-K3lLCGFVcwIMoFtXWAr" : {
+      "bgImg" : "Demo Title",
+      "bgImg2" : "You can store what ver you want Demo"
+    },
+    "-K3lLCGFVcwIMoFtXWAr" : {
+      "bgImg" : "Demo Title",
+      "bgImg2" : "You can store what ver you want Demo"
+    }
+  }
+}

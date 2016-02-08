@@ -1,0 +1,27 @@
+@import 'components/color'; //<- they make me do this! https://www.npmjs.com/package/ember-cli-materialize
+$diamanias-accent: #fdd835;
+$diamanias-accent-fade: rgba(253, 216, 53, 0.5);
+$diamanias-primary: #343441;
+$diamanias-secondary: #424242;
+$diamanias-tertiary: #6767aa;
+$diamanias-text: #FFF;
+$diamanias-text-fade: rgba(255, 255, 255, 0.8);
+$navbar-font-color: $diamanias-accent;
+$primary-color: $diamanias-primary;
+$secondary-color: $diamanias-secondary;
+$link-color: $diamanias-accent;
+$damp-color: $diamanias-tertiary;
+
+$card-bg-color: $primary-color;
+$card-link-color: $link-color;
+@import 'components/variables';
+@import 'materialize';
+@import 'ember-cli-materialize';
+@import 'core/variables';
+@import 'core/layout';
+@import 'core/nav';
+@import 'core/mycards';
+@import 'core/helpers';
+@import 'components/panels';
+@import 'routes/index';
+

@@ -1,0 +1,41 @@
+<div class="container go-up">
+<section class="section center-align nav-padding">
+  <h1 class="amber-text">Diamanias</h1>
+  <h2>Once the lights go black, you'll never come back</h2>
+  <p>This is more than your everyday-feeling-good comic story line. 
+  This goes under your skin.</p>
+</section>
+{{#md-card title="Diamanias is the next-generation web comic" id="basic-card" classNames="white-text mt-1"}}
+    {{#md-card-content classNames="white-text"}}
+      <p>Diamanias is a cutting-edge web comic using the most-recent features of web pages of today.
+      You can read it online and for free! in the most recent versions of Chrome, Firefox, IE and Safari. Diamanias
+      is mobile-friendly and so you can even read it on your smartphone anytime you want.</p>
+      <p><a href="#">Unsure which browser to use? Check out our list of recent browser versions</a></p>
+    {{/md-card-content}}
+    {{#md-card-action classNames="center-align"}} 
+        {{#link-to "about" classNames="cta semi-cta"}}more about the concept{{/link-to}}
+        {{#link-to "comic.comic-chapter.comic-page" classNames="cta"}}read the comic{{/link-to}}
+    {{/md-card-action}}
+{{/md-card}}
+<section class="section center-align">
+  <h2>Diamanias is the cool story for cool kids!</h2>
+  <p>Meet Joshua and Sebastian, two students who are pushed into another, completely foreign world full of dark secrets and dystopian realities. While getting pulled deeper and deeper into a net of lies and conspiracies there is little hope to ever come back. But is there any way out? Is there any hope to save yourself?</p>
+  <p>{{#link-to "comic" classNames="cta"}}Read the comic{{/link-to}}</p>
+</section>
+</div>
+<section class="center-align bg-accent wide-section">
+  <div class="container">
+    <div class="row">
+      <div class="col s12">
+            <p class="subtitle">{{#link-to 'characters' classNames="text-primary-color text-hover-white"}}Characters{{/link-to}}</p>
+            <div class="row">
+              <div class="col s12 m6 offset-m3">
+                {{#comic-panel-slider main-action=(action "redirectUser") classNames="height-10x" imgData=model}}
+                  
+                {{/comic-panel-slider}}
+               </div>
+            </div>
+      </div>
+    </div>
+  </div>
+</section>

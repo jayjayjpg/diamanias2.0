@@ -1,0 +1,7 @@
+<img class="panel-bg" src={{data.bgImg}} alt={{panel.alt}} />
+{{#if isSpeaking}}
+  <div class="speaking-block bg-diamanias-fade">
+    <div class="speaking-field">{{data.speech}}</div>
+  </div>
+{{/if}}
+{{yield}}
