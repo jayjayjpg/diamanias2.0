@@ -24,3 +24,14 @@ $panel-function: linear;
   -o-#{$attr}: #{$val};
   #{$attr}: #{$val};
 }
+
+@mixin vendor-trans-filter($attr, $params){
+  -moz-transition: -moz-filter #{$params};
+  transition: -moz-filter #{$params};
+  -o-transition: -o-filter #{$params};
+  transition: -o-filter #{$params};
+  transition: filter #{$params};
+  -webkit-transition: -webkit-filter #{$params};
+  transition: -webkit-filter #{$params};
+
+}

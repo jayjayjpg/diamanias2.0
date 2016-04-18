@@ -8,5 +8,19 @@
 .index-panorama {
   background-color: transparentize($primary-color, 0.5);
   background-image: url('/img/f2.png');
-  @include vendor(filter, invert(50%)); 
+  @include vendor(filter,  invert(80%) blur(0px)); 
+  @include vendor-trans-filter(filter, 0.5s ease-out);
+
+  &.blurred {
+    @include vendor(filter, invert(20%) blur(5px));
+  }
+  .moving-lines {
+    .text-line{
+      color: $secondary-shade;
+      font-size: 8vh;
+      font-weight: 100;
+      line-height: 1;
+    }
+  }
 }
+
