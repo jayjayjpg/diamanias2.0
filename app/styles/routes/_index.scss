@@ -6,5 +6,7 @@
 }
 
 .index-panorama {
-  background-color: transparentize($primary-color, 0.5) 
+  background-color: transparentize($primary-color, 0.5);
+  background-image: url('/img/f2.png');
+  @include vendor(filter, invert(50%)); 
 }
