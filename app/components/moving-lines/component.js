@@ -3,19 +3,20 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   classNames: ['moving-lines'],
   tagName: 'article',
-  listTrick: Ember.computed(function(){
-    return "................................................".split(".");
-  }),
-  innerText: Ember.computed(function(){
+  innerTexts: Ember.computed(function(){
     let bases = ["T","G","A","C"];
-    let seq = "";
-    function getBases(arr,times){
-      while (times > 0){
-        seq += arr[Math.floor(Math.random() * 4)];
-        times -= 1;
+    let allLines = [];
+    function getBases(arr,len,lines){
+      while (lines > 0){
+        let seq = "";
+        for (var i = len; i > 0; i -= 1){
+          seq += arr[Math.floor(Math.random() * 4)];
+        }
+        allLines.push(seq);
+        lines -= 1;
       }
-      return seq;
+      return allLines;
     }
-    return getBases(bases,230);
+    return getBases(bases,230,40);
   })
 });
