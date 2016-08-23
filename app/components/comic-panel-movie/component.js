@@ -6,9 +6,19 @@ export default Ember.Component.extend({
   classNames: ['comic-panel', 'comic-panel-movie','panel'],
   init(){
     this._super(...arguments);
-    //this.set('timeline', tween);
+    let timeline = new Timeline({
+      onUpdate: () => {
+        this.notifyPropertyChange('progress');
+      }
+    });
+    this.set('timeline', timeline);
+
   },
-  timeline: Ember.computed(() => new Timeline()),
+  /* timeline: Ember.computed(() => new Timeline({
+    onUpdate: () => {
+      this.notifyPropertyChange('progress');
+    }
+  })), */
   didInsertElement(){
     let timeline = this.get('timeline');
     let objs = this.$('.obj').toArray();
@@ -35,6 +45,16 @@ export default Ember.Component.extend({
 
   reverse(){
     this.get('timeline').reverse();
-  }
+  },
+
+  progress: Ember.computed({
+    get(){
+      return this.get('timeline').progress();
+    },
+
+    set(key, value){
+      return this.get('timeline').progress(value);
+    }
+  })
   
 });
