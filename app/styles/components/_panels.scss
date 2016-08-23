@@ -105,11 +105,28 @@
     background-position: 0 0;
     background-attachment: scroll;
     background-color: transparent;
-    @include vendor(transition, background-position $panel-interval * 3 $panel-function);
+    @include vendor(transition, background-position $panel-interval / 4 $panel-function);
     &.moving {
       background-position:  $gutter-width * 10 0;
+      @include vendor(transition-duration, $panel-interval * 3);
     }
     
+  }
+  &.comic-panel-movie {
+    .obj {
+      display: inline-block;
+      width: 300px;
+      height: 300px;
+    }
+    #red {
+      background-color: red;
+    }
+    #green {
+      background-color: green;
+    }
+    #blue {
+      background-color: blue;
+    }
   }
 }
 

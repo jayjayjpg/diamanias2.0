@@ -11,8 +11,9 @@
     "jquery": "2.1.4",
     "loader.js": "ember-cli/loader.js#3.2.1",
     "qunit": "~1.18.0",
-    "materialize": "~0.97.0",
-    "firebase": "^2.1.0"
+    "materialize": "0.97.6",
+    "firebase": "^2.1.0",
+    "gsap": "1.18.2"
   },
   "resolutions": {
     "ember": "2.3.0",
