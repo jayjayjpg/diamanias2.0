@@ -12,6 +12,7 @@ export default Ember.Component.extend({
       }
     });
     this.set('timeline', timeline);
+    this.get('timeline').progress(0);
 
   },
   /* timeline: Ember.computed(() => new Timeline({
