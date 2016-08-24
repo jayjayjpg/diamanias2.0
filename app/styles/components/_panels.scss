@@ -113,27 +113,44 @@
     
   }
   &.comic-panel-movie {
-    width: 600px;
-    height: 400px;
+    width: 100%;
+    min-height: 400px;
     background-color: #f7f7f7;
     background-position: center 0;
     background-attachment: scroll;
     background-repeat: no-repeat;
     background-size: auto 2400px;
     background-image: url('/img/hsprite.png'); 
-    .obj {
-      display: inline-block;
-      width: 300px;
-      height: 300px;
+    position: relative;
+
+    .controls {
+      right: 2%;
+      bottom: 2%;
+      position: absolute;
+
+      i {
+        color: $semictacolor;
+        @include vendor(transition, color ease-in .2s);
+
+        &:hover, &:focus {
+          color: $ctacolor;
+        }
+      }
     }
-    #red {
-      background-color: red;
-    }
-    #green {
-      background-color: green;
-    }
-    #blue {
-      background-color: blue;
+   input[type=range] {
+      position: absolute;
+      bottom: -1%;
+      opacity: 0;
+      @include vendor(transition, opacity ease-in .5s);
+
+      &:hover {
+        opacity: 1;
+      }
+
+      & + .thumb {
+        display: none;
+        /* background-color: $semictacolor; */
+      }
     }
   }
 }

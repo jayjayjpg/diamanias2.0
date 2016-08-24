@@ -1,7 +1,9 @@
 <div>
-  <button onclick={{action play}}>Slide</button>
-  <button onclick={{action pause}}>Pause</button>
-  <button onclick={{action reverse}}>Rev</button>
+  <div class="controls">
+    <i class="medium material-icons" onclick={{action play}}>play_circle_filled</i>
+    <i class="medium material-icons" onclick={{action pause}}>pause</i>
+    <i class="medium material-icons" onclick={{action reverse}}>fast_rewind</i>
+  </div>
   <input type="range"
          value={{progress}}
          min="0"
