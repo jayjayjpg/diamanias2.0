@@ -34,8 +34,5 @@ export default Ember.Component.extend({
         }, 50);
       }
    }
-  }),
-  willDestroyElement(){
-    console.log("going into destruction mode....");
-  }
+  })
 });
