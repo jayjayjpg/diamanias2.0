@@ -27,9 +27,10 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-     /* app.import('bower_components/gsap/src/uncompressed/TweenMax.js');
+     app.import('bower_components/gsap/src/uncompressed/TweenMax.js');
      app.import('bower_components/gsap/src/uncompressed/TimelineMax.js');
-     app.import('vendor/shims/gsap-shim.js'); */
+     //TODO: Figure out how to include TweenMax / TimelineMax through shim only without importing them fully into the app
+     app.import('vendor/shims/gsap-shim.js');
 
   return app.toTree();
 };

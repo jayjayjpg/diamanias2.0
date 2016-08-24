@@ -113,6 +113,14 @@
     
   }
   &.comic-panel-movie {
+    width: 600px;
+    height: 400px;
+    background-color: #f7f7f7;
+    background-position: center 0;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-size: auto 2400px;
+    background-image: url('/img/hsprite.png'); 
     .obj {
       display: inline-block;
       width: 300px;
