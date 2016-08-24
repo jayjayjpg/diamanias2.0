@@ -27,10 +27,9 @@ export default Ember.Component.extend({
   },
   didInsertElement(){
       let self = this;
+      let writeIt = self.writeBases;
       for (var i = 0; i < this.get('seqLen'); i += 1){
-      Ember.run.later(function(){
-          self.writeBases();
-        }, 50 * i);
+        Ember.run.later(self, writeIt, 50 * i);
       }
   },
   willDestroyElement(){
