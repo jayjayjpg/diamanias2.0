@@ -29,7 +29,7 @@ module.exports = function(defaults) {
 
   app.import('bower_components/gsap/src/uncompressed/TweenMax.js');
   app.import('bower_components/gsap/src/uncompressed/TimelineMax.js');
-  app.import('vendor/shims/timelinemax.js');
+  app.import('vendor/shims/gsap-shim.js');
 
   return app.toTree();
 };

@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import { default as Timeline } from 'timelinemax';
+import { Timeline as Timeline } from 'gsap-shim';
 
 export default Ember.Component.extend({
   tagName: 'article',

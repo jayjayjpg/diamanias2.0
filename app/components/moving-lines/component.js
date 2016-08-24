@@ -10,7 +10,6 @@ export default Ember.Component.extend({
     let prolongedSeq = this.get('currentSeq') + this.get('appendingLetter');
     this.set('currentSeq', prolongedSeq);
     console.log("change text: " + prolongedSeq);
-    let self = this;
     return prolongedSeq;
   }),
   getBases: function(){
@@ -18,18 +17,23 @@ export default Ember.Component.extend({
     return bases[Math.floor(Math.random() * 4)];
   },
   writeBases: function(){
-    let self = this;
-    let newLetter;
-    newLetter = self.getBases();
-    self.set('appendingLetter', newLetter);
-    console.log("appending letter " +  self.get("appendingLetter"));
+    if (!(this.get('isDestroyed') || this.get('isDestroying'))){
+      let self = this;
+      let newLetter;
+      newLetter = self.getBases();
+      self.set('appendingLetter', newLetter);
+      console.log("appending letter " +  self.get("appendingLetter"));
+    }
   },
   didInsertElement(){
       let self = this;
       for (var i = 0; i < this.get('seqLen'); i += 1){
-        Ember.run.later(function(){
+      Ember.run.later(function(){
           self.writeBases();
         }, 50 * i);
       }
+  },
+  willDestroyElement(){
+    console.log("going into destruction mode....");
   }
 });
