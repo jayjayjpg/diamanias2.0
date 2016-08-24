@@ -1,12 +1,14 @@
 import Ember from 'ember';
-import { Timeline as Timeline } from 'gsap-shim';
+// import { Timeline as Timeline } from 'gsap-shim';
+//import { TweenLite as blobb } from 'tweenlite';
 
 export default Ember.Component.extend({
   tagName: 'article',
   classNames: ['comic-panel', 'comic-panel-movie','panel'],
   init(){
     this._super(...arguments);
-    let timeline = new Timeline({
+    console.log("Tweenlite obj: " + TweenLite);
+    let timeline = new TimelineMax({
       onUpdate: () => {
         this.notifyPropertyChange('progress');
       }
@@ -23,6 +25,7 @@ export default Ember.Component.extend({
   didInsertElement(){
     let timeline = this.get('timeline');
     let objs = this.$('.obj').toArray();
+
 
     objs.forEach(obj => {
       timeline.fromTo(
