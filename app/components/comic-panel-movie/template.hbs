@@ -1,7 +1,6 @@
 <div>
   <div class="controls">
-    <i class="medium material-icons" onclick={{action play}}>play_circle_filled</i>
-    <i class="medium material-icons" onclick={{action pause}}>pause</i>
+    {{play-button primaryAction=(action play) secondaryAction=(action pause)}}
     <i class="medium material-icons" onclick={{action reverse}}>fast_rewind</i>
   </div>
   <input type="range"
