@@ -1,5 +1,10 @@
 <h3>Page</h3>
 <div class="row">
+  <div class="col s12">
+   
+  </div>
+</div>
+<div class="row">
 {{#each model as |panelData|}}
   <div class="col {{panelData.column}}">
     {{component panelData.panelType data=panelData }}

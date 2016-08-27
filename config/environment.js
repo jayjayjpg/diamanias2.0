@@ -16,7 +16,7 @@ module.exports = function(environment) {
       'style-src': "'self' 'unsafe-inline'",
       'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com",
       'frame-src': "'self' https://*.firebaseio.com",
-      'img-src': "'self' data: https://*.firebaseio.com",
+      'img-src': ["'self'", "https://*.firebaseio.com", "https://s3.eu-central-1.amazonaws.com"],
       'script-src': "'self' 'unsafe-eval' https://*.firebaseio.com"
     },
 

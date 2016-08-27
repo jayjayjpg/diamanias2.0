@@ -31,7 +31,7 @@ export default Ember.Component.extend({
           newLetter = self.getBases();
           self.set('appendingLetter', newLetter);
           console.log(self.get('count') + ": appending letter " +  self.get("appendingLetter"));
-        }, 50);
+        }, 20);
       }
    }
   })
