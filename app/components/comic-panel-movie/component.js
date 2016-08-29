@@ -89,10 +89,12 @@ export default Ember.Component.extend({
 
   progress: Ember.computed({
     get(){
+      console.log("get progress: " + this.get('timeline').progress());
       return this.get('timeline').progress();
     },
 
     set(key, value){
+      console.log("set the progress" + value);
       return this.get('timeline').progress(value);
     }
   })

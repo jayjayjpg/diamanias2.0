@@ -1,13 +1,6 @@
 <div>
   <div class="controls">
     {{play-button primaryAction=(action play) secondaryAction=(action pause)}}
-    <i class="medium material-icons" onclick={{action reverse}}>fast_rewind</i>
   </div>
-  <input type="range"
-         value={{progress}}
-         min="0"
-         max="1"
-         step="0.001"
-         onfocus={{action pause}}
-         oninput={{action (mut progress) value="target.value"}}>
+  {{progress-bar step="0.001" focusAction=(action pause) inputAction=(action (mut progress)) }}
 </div>
