@@ -4,9 +4,7 @@ export default Ember.Component.extend({
   tagName: 'input',
   classNames: ['progress-bar'],
   attributeBindings: ['step','min','max','value','type'],
-  value: Ember.computed('progress', function(){
-    return this.get('progress');
-  }),
+  value: 0, // add two way binding from progress mut helper
   type: "range",
   min: 0,
   max: 1,
