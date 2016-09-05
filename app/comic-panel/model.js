@@ -6,5 +6,8 @@ export default DS.Model.extend({
   column: DS.attr('string'),
   speech: DS.attr('string'),
   property1: DS.attr('string'),
-  panelType: DS.attr('string')
+  panelType: DS.attr('string'),
+  height: DS.attr('number'),
+  bgSize: DS.attr('number'),
+  frameNum: DS.attr('number')
 });

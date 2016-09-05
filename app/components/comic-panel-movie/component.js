@@ -6,12 +6,21 @@ export default Ember.Component.extend({
   tagName: 'article',
   classNames: ['comic-panel', 'comic-panel-movie','panel'],
   attributeBindings: ['style'],
+  bgHeight: Ember.computed('data.bgSize', 'data.frameNum', function(){
+    return this.get('data.bgSize')/ this.get('data.frameNum');
+  }),
+  bgWidth: Ember.computed('data.bgSize', 'naturalHeight', 'naturalWidth', function(){
+    return this.get('naturalWidth') / this.get('naturalHeight') * this.get('data.bgSize');
+  }),
+  backgroundSize: Ember.computed('width', 'data.bgSize', function(){
+    return this.get('bgWidth') + "px " + this.get('data.bgSize') + "px";
+  }),
   bgStyle: Ember.computed('data.bgImg', function(){
     return "url('" +  this.get('data.bgImg') + "')";
   }),
   init(){
     this._super(...arguments);
-    //console.log("Tweenlite obj: " + TweenLite);
+    let self = this;
     let timeline = new Timeline({
       onUpdate: () => {
         this.notifyPropertyChange('progress');
@@ -21,6 +30,15 @@ export default Ember.Component.extend({
     });
     this.set('timeline', timeline);
     this.get('timeline').progress(0);
+ 
+    let image = new Image();
+    this.set('pseudoImg', image);
+    this.get('pseudoImg').onload = function() {
+      self.set('naturalHeight', self.get('pseudoImg').height);
+      self.set('naturalWidth', self.get('pseudoImg').width);
+      self.buildTimeline(); // start building timeline just when the bg Image has loaded and dimensions have been calculated
+    }
+    this.get('pseudoImg').src = this.get('data.bgImg');
 
   },
   /* timeline: Ember.computed(() => new Timeline({
@@ -29,50 +47,51 @@ export default Ember.Component.extend({
     }
   })), */
   didInsertElement(){
+
+  },
+
+  buildTimeline(){
     let screen = this.$();
     let timeline = this.get('timeline');
-    let objs = this.$('.obj').toArray();
+
     let bgStyle = this.get('bgStyle');
-    console.log("bg img is: " + this.get('bgStyle'));
+    let bgSize = this.get('backgroundSize');
     Tween.set(screen, {
                         css: {
+                          backgroundPosition: "center 0",
+                          backgroundSize: bgSize,
                           backgroundImage: bgStyle
                         }
     });
 
     timeline.add( Tween.set(screen, {
                                       css: { 
-                                       // backgroundImage: bgStyle,
                                         backgroundPosition: "center 0"
                                       }
                             }
                 )
-    );
-    for (let j = 0; j < 10; j += 1){
-      for (let i = 1; i < 6; i += 1){
-        timeline.add( Tween.set( screen, {
-                                          css: { 
-                                            //backgroundImage: bgStyle,
-                                            backgroundPosition: "center " + -i * 400 + "px"
-                                          },
-                                          delay: 0.2
-                                }
-                    )
-        );
-      }
-    }
+    ); 
 
-   /* objs.forEach(obj => {
-      timeline.fromTo(
-        obj,
-        1,
-        { transform: 'translateY(-500px)'},
-        { transform: 'translateY(0)'},
-        '-=.5'
-       );
-    }); */
+    for (let i = 1; i < 6; i += 1){
+      this.setFrame(timeline, i);
+    }
+    for (let i = 4; i >= 0; i -= 1){
+      this.setFrame(timeline, i);
+    }
    
     timeline.pause();
+  },
+
+  setFrame(timeline, frameIndex){
+    let screen = this.$();
+    timeline.add( Tween.set( screen, {
+                                      css: { 
+                                        backgroundPosition: "center " + - frameIndex * this.get('bgHeight') + "px"
+                                      },
+                                      delay: 0.2
+                            }
+                )
+    );
   },
 
   play(){

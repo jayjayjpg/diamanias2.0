@@ -30,7 +30,6 @@ export default Ember.Component.extend({
           self.set('appendingLetter', 'N'); // reset the appendingLetter prop to a random value so the newLetter value will definitely be different from the former randomly selected one. Hack to make this.set() execute
           newLetter = self.getBases();
           self.set('appendingLetter', newLetter);
-          console.log(self.get('count') + ": appending letter " +  self.get("appendingLetter"));
         }, 20);
       }
    }
