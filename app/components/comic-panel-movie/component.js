@@ -7,7 +7,7 @@ export default Ember.Component.extend({
   classNames: ['comic-panel', 'comic-panel-movie','panel'],
   attributeBindings: ['style'],
   bgHeight: Ember.computed('data.bgSize', 'data.frameNum', function(){
-    return this.get('data.bgSize')/ this.get('data.frameNum');
+    return this.get('data.bgSize') / this.get('data.frameNum');
   }),
   bgWidth: Ember.computed('data.bgSize', 'naturalHeight', 'naturalWidth', function(){
     return this.get('naturalWidth') / this.get('naturalHeight') * this.get('data.bgSize');
@@ -53,6 +53,9 @@ export default Ember.Component.extend({
   buildTimeline(){
     let screen = this.$();
     let timeline = this.get('timeline');
+    let cntBwd = this.get('data.frameNum');
+    let cntFwd = cntBwd + 2;
+    
 
     let bgStyle = this.get('bgStyle');
     let bgSize = this.get('backgroundSize');
@@ -72,10 +75,10 @@ export default Ember.Component.extend({
                 )
     ); 
 
-    for (let i = 1; i < 6; i += 1){
+    for (let i = 1; i < cntFwd; i += 1){
       this.setFrame(timeline, i);
     }
-    for (let i = 4; i >= 0; i -= 1){
+    for (let i = cntBwd; i >= 0; i -= 1){
       this.setFrame(timeline, i);
     }
    
@@ -88,7 +91,7 @@ export default Ember.Component.extend({
                                       css: { 
                                         backgroundPosition: "center " + - frameIndex * this.get('bgHeight') + "px"
                                       },
-                                      delay: 0.2
+                                      delay: 0.8
                             }
                 )
     );
