@@ -14,9 +14,9 @@ module.exports = function(environment) {
     locationType: 'auto',
     contentSecurityPolicy: {
       'style-src': "'self' 'unsafe-inline'",
-      'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com",
-      'frame-src': "'self' https://*.firebaseio.com",
-      'img-src': ["'self'", "https://*.firebaseio.com", "https://s3.eu-central-1.amazonaws.com"],
+      'connect-src': "'self' http://localhost:3000/",
+      'frame-src': "'self' http://localhost:3000/",
+      'img-src': ["'self'", "http://localhost:3000/", "https://s3.eu-central-1.amazonaws.com"], // TODO: cors violation - check if to use amazon or rails api instead
       'script-src': "'self' 'unsafe-eval' https://*.firebaseio.com"
     },
 

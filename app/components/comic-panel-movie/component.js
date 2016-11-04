@@ -53,8 +53,7 @@ export default Ember.Component.extend({
   buildTimeline(){
     let screen = this.$();
     let timeline = this.get('timeline');
-    let cntBwd = this.get('data.frameNum');
-    let cntFwd = cntBwd + 2;
+    let cnt = this.get('data.frameNum');
     
 
     let bgStyle = this.get('bgStyle');
@@ -75,10 +74,7 @@ export default Ember.Component.extend({
                 )
     ); 
 
-    for (let i = 1; i < cntFwd; i += 1){
-      this.setFrame(timeline, i);
-    }
-    for (let i = cntBwd; i >= 0; i -= 1){
+    for (let i = 1; i < cnt; i += 1){
       this.setFrame(timeline, i);
     }
    
@@ -91,7 +87,7 @@ export default Ember.Component.extend({
                                       css: { 
                                         backgroundPosition: "center " + - frameIndex * this.get('bgHeight') + "px"
                                       },
-                                      delay: 0.8
+                                      delay: 0.4
                             }
                 )
     );
