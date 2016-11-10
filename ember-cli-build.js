@@ -32,5 +32,8 @@ module.exports = function(defaults) {
      //TODO: Figure out how to include TweenMax / TimelineMax through shim only without importing them fully into the app
      app.import('vendor/shims/gsap-shim.js');
 
+    // import processing
+     app.import('bower_components/Processing.js/processing.js');
+
   return app.toTree();
 };

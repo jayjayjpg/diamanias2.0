@@ -17,7 +17,8 @@ module.exports = function(environment) {
       'connect-src': "'self' http://localhost:3000/",
       'frame-src': "'self' http://localhost:3000/",
       'img-src': ["'self'", "http://localhost:3000/", "https://s3.eu-central-1.amazonaws.com"], // TODO: cors violation - check if to use amazon or rails api instead
-      'script-src': "'self' 'unsafe-eval' https://*.firebaseio.com"
+      'script-src': "'self' 'unsafe-eval' https://*.firebaseio.com",
+      "font-src":"'self' data: "
     },
 
 

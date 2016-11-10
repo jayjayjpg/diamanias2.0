@@ -74,9 +74,12 @@ export default Ember.Component.extend({
                 )
     ); 
 
-    for (let i = 1; i < cnt; i += 1){
+  /*  for (let i = 1; i < cnt; i += 1){
       this.setFrame(timeline, i);
-    }
+    } */
+
+    timeline.from(screen, 0.4, { css: { backgroundPosition: "center 0" } });
+    timeline.from(screen, 0.4, { css: { backgroundPosition: "center " + - cnt * bgHeight + "px"  } });
    
     timeline.pause();
   },
@@ -85,7 +88,7 @@ export default Ember.Component.extend({
     let screen = this.$();
     timeline.add( Tween.set( screen, {
                                       css: { 
-                                        backgroundPosition: "center " + - frameIndex * this.get('bgHeight') + "px"
+                                        backgroundPosition: "center " + - frameIndex * bgHeight + "px"
                                       },
                                       delay: 0.2
                             }

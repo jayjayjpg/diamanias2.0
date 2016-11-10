@@ -7,6 +7,7 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('about');
+  this.route('animations-demo');
   this.route('characters', function(){
     this.route('char', { path: '/:char_id' });  
     //this.route('char');

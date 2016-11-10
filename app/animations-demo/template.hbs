@@ -1,0 +1,16 @@
+<div class="container mt-1 animation-demos">
+  <h2>Animation Demo <span class="demo-nav">
+  <ul>
+  {{!-- {{#each model as |panel|}}
+   <li>{{#link-to "animation-demos" panel.id}}Demo {{panel.id}}{{/link-to}}</li>
+  {{/each}} --}}
+  </ul>
+  </span></h2>
+  <section class="row">
+  {{#each model as |panel|}}
+    <div id="panel-{{panel.id}}" class="col {{panel.columnClass}} mt-2">
+    {{component panel.panelType data=panel}}
+   </div>
+  {{/each}}
+  </section>
+</div>
