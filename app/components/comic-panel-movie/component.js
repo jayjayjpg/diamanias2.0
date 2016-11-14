@@ -32,13 +32,14 @@ export default Ember.Component.extend({
     this.get('timeline').progress(0);
  
     let image = new Image();
-    this.set('pseudoImg', image);
-    this.get('pseudoImg').onload = function() {
-      self.set('naturalHeight', self.get('pseudoImg').height);
-      self.set('naturalWidth', self.get('pseudoImg').width);
+
+    image.onload = function() {
+      self.set('naturalHeight', image.height);
+      self.set('naturalWidth', image.width);
       self.buildTimeline(); // start building timeline just when the bg Image has loaded and dimensions have been calculated
-    }
-    this.get('pseudoImg').src = this.get('data.bgImg');
+    };
+    image.src = this.get('data.bgImg');
+    this.set('pseudoImg', image);
 
   },
   /* timeline: Ember.computed(() => new Timeline({
