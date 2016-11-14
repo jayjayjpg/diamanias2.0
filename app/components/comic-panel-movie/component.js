@@ -3,9 +3,33 @@ import { Timeline, Tween } from 'gsap-shim';
 
 
 export default Ember.Component.extend({
-  tagName: 'article',
+  tagName: 'canvas',
+  id: 'bla-canvas',
   classNames: ['comic-panel', 'comic-panel-movie','panel'],
-  attributeBindings: ['style'],
+  attributeBindings: ['style','width','height','id'],
+  width: 1000,
+  height: 1000,
+  Sprite: Ember.Object.extend({
+   render(){
+     this.get('context').mozImageSmoothingEnabled = false;
+     this.get('context').webkitImageSmoothingEnabled = false;
+     this.get('context').msImageSmoothingEnabled = false;
+     this.get('context').imageSmoothingEnabled = false;
+     this.get('context').drawImage(
+        this.get('image'),
+        0,
+        0,
+        this.get('width'),
+        this.get('height'),
+        0,
+        0,
+        this.get('dwidth'),
+        this.get('dheight')
+      );
+     console.log("dwidth: " + this.get('dwidth'));
+     console.log("height: " +this.get('height'));
+   }
+  }),
   bgHeight: Ember.computed('data.bgSize', 'data.frameNum', function(){
     return this.get('data.bgSize') / this.get('data.frameNum');
   }),
@@ -36,10 +60,11 @@ export default Ember.Component.extend({
     image.onload = function() {
       self.set('naturalHeight', image.height);
       self.set('naturalWidth', image.width);
+      self.set('pseudoImg', image);
       self.buildTimeline(); // start building timeline just when the bg Image has loaded and dimensions have been calculated
     };
     image.src = this.get('data.bgImg');
-    this.set('pseudoImg', image);
+
 
   },
   /* timeline: Ember.computed(() => new Timeline({
@@ -48,11 +73,27 @@ export default Ember.Component.extend({
     }
   })), */
   didInsertElement(){
-
+   
   },
 
-  buildTimeline(){
+  buildTimeline(){     
     let screen = this.$();
+    let bgWidth = this.get('bgWidth');
+    let bgHeight = this.get('bgHeight');
+    let pseudoImg = this.get('pseudoImg');
+    let heightCalc = this.get('naturalHeight') / this.get('data.frameNum');
+    console.log("canvas: " + screen[0].getContext("2d"));
+    let imgObj = this.get('Sprite').create({
+      context: screen[0].getContext("2d"),
+      width: this.get('naturalWidth'),
+      height: heightCalc,
+      dwidth: this.get('width'),
+      dheight: this.get('height'),
+      image: pseudoImg
+    });
+    this.set('imgObj', imgObj);
+     this.get('imgObj').render();
+  /*  let screen = this.$();
     let timeline = this.get('timeline');
     let cnt = this.get('data.frameNum');
     let bgStyle = this.get('bgStyle');
@@ -79,11 +120,11 @@ export default Ember.Component.extend({
       this.setFrame(timeline, i);
     }
    
-    timeline.pause();
+    timeline.pause(); */
   },
 
   setFrame(timeline, frameIndex){
-    let screen = this.$();
+    /* let screen = this.$();
     timeline.add( Tween.set( screen, {
                                       css: { 
                                         backgroundPosition: "center " + - frameIndex * this.get('bgHeight') + "px"
@@ -91,7 +132,7 @@ export default Ember.Component.extend({
                                       delay: 0.2
                             }
                 )
-    );
+    ); */
   },
 
   play(){
