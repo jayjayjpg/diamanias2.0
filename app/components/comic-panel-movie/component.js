@@ -11,14 +11,16 @@ export default Ember.Component.extend({
   height: 1000,
   Sprite: Ember.Object.extend({
    render(){
-     this.get('context').mozImageSmoothingEnabled = false;
-     this.get('context').webkitImageSmoothingEnabled = false;
-     this.get('context').msImageSmoothingEnabled = false;
-     this.get('context').imageSmoothingEnabled = false;
-     this.get('context').drawImage(
+     let ctx = this.get('context');
+     ctx.mozImageSmoothingEnabled = false;
+     ctx.webkitImageSmoothingEnabled = false;
+     ctx.msImageSmoothingEnabled = false;
+     ctx.imageSmoothingEnabled = false;
+     ctx.clearRect(0, 0, this.get('width'), this.get('height'));
+     ctx.drawImage(
         this.get('image'),
         0,
-        0,
+        this.get('frameHeight'),
         this.get('width'),
         this.get('height'),
         0,
@@ -27,7 +29,7 @@ export default Ember.Component.extend({
         this.get('dheight')
       );
      console.log("dwidth: " + this.get('dwidth'));
-     console.log("height: " +this.get('height'));
+     console.log("frameheight: " +this.get('frameHeight'));
    }
   }),
   bgHeight: Ember.computed('data.bgSize', 'data.frameNum', function(){
@@ -82,17 +84,28 @@ export default Ember.Component.extend({
     let bgHeight = this.get('bgHeight');
     let pseudoImg = this.get('pseudoImg');
     let heightCalc = this.get('naturalHeight') / this.get('data.frameNum');
+
     console.log("canvas: " + screen[0].getContext("2d"));
     let imgObj = this.get('Sprite').create({
       context: screen[0].getContext("2d"),
       width: this.get('naturalWidth'),
       height: heightCalc,
+      frameHeight: 0,
       dwidth: this.get('width'),
       dheight: this.get('height'),
       image: pseudoImg
     });
     this.set('imgObj', imgObj);
-     this.get('imgObj').render();
+    this.get('imgObj').render();
+    
+    let drawFrame = () => {
+     // this.set('imgObj', imgObj);
+      this.get('imgObj').render();
+    }
+
+    let timeline = this.get('timeline');
+    timeline.add( Tween.to( imgObj, 0.01, { frameHeight: this.get('naturalHeight'), ease:SteppedEase.config(3), onUpdate: drawFrame}));
+    timeline.play();
   /*  let screen = this.$();
     let timeline = this.get('timeline');
     let cnt = this.get('data.frameNum');
