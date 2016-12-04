@@ -52,7 +52,8 @@ export default Ember.Component.extend({
         this.notifyPropertyChange('progress');
       },
       repeat: -1,
-      repeatDelay: 0
+      repeatDelay: 0,
+      delay: 0.4
     });
     this.set('timeline', timeline);
     this.get('timeline').progress(0);
@@ -69,11 +70,6 @@ export default Ember.Component.extend({
 
 
   },
-  /* timeline: Ember.computed(() => new Timeline({
-    onUpdate: () => {
-      this.notifyPropertyChange('progress');
-    }
-  })), */
   didInsertElement(){
    
   },
@@ -104,51 +100,60 @@ export default Ember.Component.extend({
     }
 
     let timeline = this.get('timeline');
-    timeline.add( Tween.to( imgObj, 0.01, { frameHeight: this.get('naturalHeight'), ease:SteppedEase.config(3), onUpdate: drawFrame}));
-    timeline.play();
-  /*  let screen = this.$();
-    let timeline = this.get('timeline');
-    let cnt = this.get('data.frameNum');
-    let bgStyle = this.get('bgStyle');
-    let bgSize = this.get('backgroundSize');
-    let bgHeight = this.get('bgHeight');
 
-    Tween.set(screen, {
-                        css: {
-                          backgroundPosition: "center 0",
-                          backgroundSize: bgSize,
-                          backgroundImage: bgStyle
-                        }
-    });
 
-    timeline.add( Tween.set(screen, {
-                                      css: { 
-                                        backgroundPosition: "center 0"
-                                      }
+    timeline.add( Tween.set(imgObj, 0.4, {
+                                      frameHeight: 0,
+                                      onComplete: this.drawFrame,
+                                      onCompleteParams: ['imgObj','frameHeight']
+                            }
+                )
+    ); 
+    timeline.add( Tween.set(imgObj, 0.4, {
+                                      frameHeight: heightCalc,
+                                      onComplete: this.drawFrame,
+                                      onCompleteParams: ['imgObj','frameHeight']
+                            }
+                )
+    ); 
+    timeline.add( Tween.set(imgObj, 0.4, {
+                                      frameHeight: heightCalc * 2,
+                                      onComplete: this.drawFrame,
+                                      onCompleteParams: ['imgObj','frameHeight']
                             }
                 )
     ); 
 
-    for (let i = 1; i < cnt; i += 1){
+   /* for (let i = 1; i < this.get('data.frameNum'); i += 1){
       this.setFrame(timeline, i);
-    }
-   
-    timeline.pause(); */
+    } */
+    
+    this.set('timeline', timeline);
+    timeline.play();
+
+  },
+  
+  drawFrame(imgObj, frame){
+    console.log("draw new frame");
+    this.set('imgObj.frameHeight', frame);
+    this.set('imgObj', imgObj);
+    this.get('imgObj').render();
   },
 
   setFrame(timeline, frameIndex){
-    /* let screen = this.$();
-    timeline.add( Tween.set( screen, {
-                                      css: { 
-                                        backgroundPosition: "center " + - frameIndex * this.get('bgHeight') + "px"
-                                      },
-                                      delay: 0.2
+    let imgObj = this.get('imgObj');
+    let heightCalc = this.get('naturalHeight') / this.get('data.frameNum');
+    timeline.add( Tween.to(imgObj, 0.4, { 
+                                      frameHeight: heightCalc * frameIndex,
+                                      onComplete: this.get('imgObj').render
                             }
                 )
-    ); */
+    ); 
+    console.log("added frameHeight" + (heightCalc * frameIndex));
   },
 
-  play(){
+  click(){
+    console.log("clicked");
     this.get('timeline').play();
   },
 
@@ -158,18 +163,6 @@ export default Ember.Component.extend({
 
   reverse(){
     this.get('timeline').reverse();
-  },
-
-  /* progress: Ember.computed({
-    get(){
-      console.log("get progress: " + this.get('timeline').progress());
-      return this.get('timeline').progress();
-    },
-
-    set(key, value){
-      console.log("set the progress" + value);
-      return this.get('timeline').progress(value);
-    }
-  }) */
+  }
   
 });

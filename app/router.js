@@ -18,6 +18,7 @@ Router.map(function() {
     });  
   });
 
+  this.route('toc', { path: '/table-of-contents' });
 });
 
 export default Router;
