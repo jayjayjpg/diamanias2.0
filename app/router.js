@@ -19,6 +19,7 @@ Router.map(function() {
   });
 
   this.route('toc', { path: '/table-of-contents' });
+  this.route('countdown');
 });
 
 export default Router;

@@ -1,0 +1,14 @@
+<div class="container mt-1">
+  <section class="row">
+    <div class="col s12">
+      <h2>Countdown</h2>
+      <p>{{model.cur.currentTime}}</p>
+      <p class="center">{{model.cur.hour}} : {{model.cur.min}} : {{model.cur.sec}}</p>
+      <p>{{model.cd.elapsing}}</p>
+      <p class="center countdown">{{model.cd.month}} {{model.cd.day}} {{model.cd.year}} - {{model.cd.hour}} : {{model.cd.min}} : {{model.cd.sec}}</p>
+    </div>
+  </section>
+  <section class="row">
+  {{outlet}}
+  </section>
+</div>
