@@ -1,11 +1,14 @@
-<div class="container mt-1">
-  <section class="row">
-    <div class="col s12">
-      <h2>Countdown</h2>
-      <p class="center countdown">{{elapsingDays}} days {{elapsingHours}} hours {{elapsingMins}} mins {{elapsingSecs}} secs left</p>
-    </div>
-  </section>
-  <section class="row">
-  {{outlet}}
-  </section>
-</div>
+{{#dynamic-color-bg topColor="#dd77dd" floorColor="#424242" percentage="50" }}
+  <div class="container mt-1">
+    <section class="row">
+      <div class="col s12">
+        {{#counting-clock classNames="mt-1 countdown"}}
+          <h2 class="center">This story will automatically restart in </h2>
+        {{/counting-clock}}
+      </div>
+    </section>
+    <section class="row">
+    {{outlet}}
+    </section>
+  </div>
+{{/dynamic-color-bg}}

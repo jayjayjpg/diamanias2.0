@@ -1,0 +1,8 @@
+@include vendor-animation(haunted){ 
+  0% { transform: translate(.1em, .15em) scale(.8,.8); opacity: .7 }
+  20% { transform: translate(.12em, .12em) scale(.85,.85); opacity: .6 }
+  40% { transform: translate(.07em, .2em) scale(.77, .77); opacity: .8 }
+  60% { transform: translate(-0.2em, .18em) scale(.7, .7); opacity: .9 }
+  80% { transform: translate(.05em, .15em) scale(.67, .67); opacity: .9 }
+  100% { transform: translate(-.09em, .18em) scale(.77, .8); opacity: .7 }
+}
