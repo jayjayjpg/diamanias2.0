@@ -13,13 +13,5 @@ test('it renders', function(assert) {
   this.render(hbs`{{comic-panel-movie}}`);
 
   assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:"
-  this.render(hbs`
-    {{#comic-panel-movie}}
-      template block text
-    {{/comic-panel-movie}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.ok(this.$('canvas').hasClass('comic-panel-movie'));
 });

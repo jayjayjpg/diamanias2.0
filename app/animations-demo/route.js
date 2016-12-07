@@ -22,7 +22,7 @@ const panelData = [
 ];
 
 export default Ember.Route.extend({
-  model(params){
+  model(){
     return panelData;
   }
 });

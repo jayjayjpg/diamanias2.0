@@ -19,7 +19,7 @@
         @include vendor(animation, .2s ease-in-out infinite alternate 0s haunted);
         @for $i from 1 through 4 {
           &:nth-child(#{$i*2}){
-            @include vendor(animation, .4s linear infinite alternate #{$i/6}s haunted);
+            @include vendor(animation, .4s ease-in-out infinite alternate #{$i/6}s haunted);
           }
         }
       }

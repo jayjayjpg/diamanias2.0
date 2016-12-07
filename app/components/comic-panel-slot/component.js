@@ -37,16 +37,8 @@ export default Ember.Component.extend({
       self.set('naturalHeight', self.get('pseudoImg').height);
       self.set('naturalWidth', self.get('pseudoImg').width);
       self.buildTimeline(); // start building timeline just when the bg Image has loaded and dimensions have been calculated
-    }
+    };
     this.get('pseudoImg').src = this.get('data.bgImg');
-
-  },
-  /* timeline: Ember.computed(() => new Timeline({
-    onUpdate: () => {
-      this.notifyPropertyChange('progress');
-    }
-  })), */
-  didInsertElement(){
 
   },
 
@@ -74,9 +66,6 @@ export default Ember.Component.extend({
                 )
     ); 
 
-  /*  for (let i = 1; i < cnt; i += 1){
-      this.setFrame(timeline, i);
-    } */
 
     timeline.from(screen, 0.4, { css: { backgroundPosition: "center 0" } });
     timeline.from(screen, 0.4, { css: { backgroundPosition: "center " + - cnt * bgHeight + "px"  } });
@@ -88,7 +77,7 @@ export default Ember.Component.extend({
     let screen = this.$();
     timeline.add( Tween.set( screen, {
                                       css: { 
-                                        backgroundPosition: "center " + - frameIndex * bgHeight + "px"
+                                        backgroundPosition: "center " + - frameIndex * this.get('bgHeight') + "px"
                                       },
                                       delay: 0.2
                             }

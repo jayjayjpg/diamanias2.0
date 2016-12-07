@@ -1,8 +1,8 @@
-{{#dynamic-color-bg topColor="#dd77dd" floorColor="#424242" percentage="50" }}
+{{#dynamic-color-bg topColor="#dcc734" floorColor="#343441" percentage=percents }}
   <div class="container mt-1">
     <section class="row">
       <div class="col s12">
-        {{#counting-clock classNames="mt-1 countdown"}}
+        {{#counting-clock classNames="mt-1 countdown" onTicking=(action "timeUpdate") }}
           <h2 class="center">This story will automatically restart in </h2>
         {{/counting-clock}}
       </div>

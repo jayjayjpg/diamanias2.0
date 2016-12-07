@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import { Timeline, Tween } from 'gsap-shim'; // add timeline with onUpdate event handler to setup config for each frame
 
 export default Ember.Component.extend({
   tagName: 'article',

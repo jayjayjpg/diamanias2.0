@@ -1,4 +1,5 @@
 import Ember from 'ember';
+/* global moment */
 
 export default Ember.Component.extend({
   classNames: ['counting-clock'],
@@ -6,7 +7,6 @@ export default Ember.Component.extend({
     this.loop();
   },
   currentTime: Ember.computed(function(){
-    // '20161205'
     return moment();
   }),
   releaseTime: Ember.computed(function(){
@@ -30,9 +30,20 @@ export default Ember.Component.extend({
   elapsingSecs: Ember.computed('differenceTime', function(){
     return moment.utc(this.get('differenceTime')).format("ss");
   }),
+  /* elapsingFracs: Ember.computed('differenceTime', function(){
+    return moment.utc(this.get('differenceTime')).format("SS");
+  }), */
   loop(){
     let current = moment();
     this.set('currentTime', current);
-    Ember.run.later(this, this.loop, 250);
+    this.ticking();
+    Ember.run.later(this, this.loop, 100);
+  },
+  ticking(){
+    if (this.get('onTicking') !== undefined){
+    // trigger action on route's controller for the timeUpdate
+      this.get('onTicking')(this.get('currentTime'));
+    }
   }
+ 
 });

@@ -70,14 +70,9 @@ export default Ember.Component.extend({
 
 
   },
-  didInsertElement(){
-   
-  },
 
   buildTimeline(){     
     let screen = this.$();
-    let bgWidth = this.get('bgWidth');
-    let bgHeight = this.get('bgHeight');
     let pseudoImg = this.get('pseudoImg');
     let heightCalc = this.get('naturalHeight') / this.get('data.frameNum');
 
@@ -94,10 +89,9 @@ export default Ember.Component.extend({
     this.set('imgObj', imgObj);
     this.get('imgObj').render();
     
-    let drawFrame = () => {
-     // this.set('imgObj', imgObj);
+    /* let drawFrame = () => {
       this.get('imgObj').render();
-    }
+    }; */
 
     let timeline = this.get('timeline');
 
@@ -124,9 +118,6 @@ export default Ember.Component.extend({
                 )
     ); 
 
-   /* for (let i = 1; i < this.get('data.frameNum'); i += 1){
-      this.setFrame(timeline, i);
-    } */
     
     this.set('timeline', timeline);
     timeline.play();
