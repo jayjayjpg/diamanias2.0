@@ -25,6 +25,6 @@ export default Ember.Route.reopen({
     ];
   } */
   model(){
-    return this.store.findAll('char');
+   // return this.store.findAll('char');
   }
 });
