@@ -2,12 +2,15 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   classNames: ['dynamic-color-bg'],
+  classNameBindings: ['sceneOne:scene-1','sceneTwo:scene-two'],
   colorBlocks: Ember.computed(function(){
     return "0123456789abcdef".split("");
   }),
   floorColor: null,
   topColor: null,
   percentage: null,
+  sceneOne: true, // TODO: iterate over several scenes in the background
+  counter: 0,
   attributeBindings: ['colorStyle:style'],
   currentColor: Ember.computed('percentage', function(){
     let floorColor = this.get('floorColor');

@@ -1,4 +1,25 @@
 .dynamic-color-bg {
-  height: 80vh;
+  height: 89vh;
   margin: -$gutter-width * 1.5  auto;
+  opacity: .8;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    opacity: .3;
+  }
+  &.scene-1 {
+    &:after {
+      background-image: url('/img/kimhospice-cut.png');
+      background-position: right bottom;
+    }
+  }
+  
 }

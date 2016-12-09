@@ -7,7 +7,9 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('about');
-  this.route('animations-demo');
+  this.route('countdown', { path: '/countdown'});
+  this.route('index', { path: '/'});
+  /* this.route('animations-demo');
   this.route('characters', function(){
     this.route('char', { path: '/:char_id' });  
     //this.route('char');
@@ -16,10 +18,10 @@ Router.map(function() {
     this.route('comic-chapter', function(){
       this.route('comic-page');
     });  
-  });
+  }); */
 
-  this.route('toc', { path: '/table-of-contents' });
-  this.route('countdown');
+ // this.route('toc', { path: '/table-of-contents' });
+  
 });
 
 export default Router;

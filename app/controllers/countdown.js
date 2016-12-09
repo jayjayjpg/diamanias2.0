@@ -20,7 +20,7 @@ export default Ember.Controller.extend({
   percents: Ember.computed('timeRemaining', function(){
     let res = this.get('timeRemaining') / this.get('maxTime');
     res =  res * 10 / 10; // round number to one decimal
-    return res;
+    return res; 
   }),
   actions: {
     timeUpdate(timesObj){

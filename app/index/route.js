@@ -5,6 +5,9 @@ export default Ember.Route.reopen({
     this._super();
     Ember.$('.body-canvas').addClass('index');
   },
+  redirect: function(){
+    this.transitionTo('countdown');
+  },
   /* model(){
     return [
     {id: 1,

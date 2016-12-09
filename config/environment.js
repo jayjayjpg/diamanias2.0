@@ -4,17 +4,11 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'diamanias',
     environment: environment,
-    firebase: {
-      apiKey: 'xyz',
-      authDomain: 'dazzling-inferno-4794.firebaseio.com/',
-      databaseURL: 'https://dazzling-inferno-4794.firebaseio.com/',
-      storageBucket: 'dazzling-inferno-4794.appspot.com',
-    },
     baseURL: '/',
     locationType: 'auto',
     contentSecurityPolicy: {
       'style-src': "'self' 'unsafe-inline'",
-      'connect-src': "'self' http://localhost:3000/",
+      'connect-src': "'self' http://localhost:3000/ https://diadata.herokuapp.com",
       'frame-src': "'self' http://localhost:3000/",
       'img-src': ["'self'", "http://localhost:3000/", "https://s3.eu-central-1.amazonaws.com"], // TODO: cors violation - check if to use amazon or rails api instead
       'script-src': "'self' 'unsafe-eval' https://*.firebaseio.com",
@@ -41,6 +35,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.host = 'http://localhost:3000/';
   }
 
   if (environment === 'test') {
@@ -58,6 +53,7 @@ module.exports = function(environment) {
   if (environment === 'production') {
     ENV.baseURL = '/';
     ENV.locationType = 'auto';
+    ENV.host = 'https://diadata.herokuapp.com';
 
   }
 
