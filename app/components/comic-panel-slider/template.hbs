@@ -2,7 +2,7 @@
     {{#each imgData as | image |}}
       <li>
           {{#link-to "characters.char" image.route}}
-            <img src={{image.url}} alt={{image.title}}> <!-- random image -->
+            <img src={{image.headShot}} alt={{image.title}}> <!-- random image -->
             <h3 class="panel-title bg-primary-color width-50">{{image.title}}</h3>
           {{/link-to}}
       </li>
