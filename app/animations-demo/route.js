@@ -18,6 +18,15 @@ const panelData = [
    height: 400,
    bgSize: 2800,
    frameNum: 6,
+  },
+  {id: 3,
+   bgImg: 'img/dthsprite.png',
+   fgImg: 'img/dthsprite.png',
+   panelType: 'dummy-canvas',
+   columnClass: 's12',
+   height: 400,
+   bgSize: 2800,
+   frameNum: 6,
   }
 ];
 
