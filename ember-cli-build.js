@@ -34,7 +34,6 @@ module.exports = function(defaults) {
 
     // import processing
      app.import('bower_components/Processing.js/processing.js');
-     app.import('bower_components/moment/min/moment.min.js');
-
+   //  app.import('bower_components/moment/moment.js');
   return app.toTree();
 };

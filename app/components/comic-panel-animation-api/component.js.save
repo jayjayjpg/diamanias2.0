@@ -1,0 +1,8 @@
+import Ember from 'ember';
+
+export default Ember.Component.extend({
+  classNames: ['panel','comic-panel', 'comic-panel-animation-api'],
+  attributeBindings: ['id:customId'],
+  customId: 'animation-api-panel',
+  
+});

@@ -1,0 +1,16 @@
+{{#each layerItems as |layer|}}
+  {{yield (hash content=(
+               component layer.layerType 
+               classNames=layer.layerClass
+               bgImage=layer.layerImage
+               keyFrames=layer.layerKeys
+               options=layer.animationOptions
+         )
+      )
+   }}
+{{/each}}
+{{#if isPlaying}}
+  <div class="play-button" {{action "pause"}}></div>
+{{else}}
+  <div class="play-button" {{action "play"}}></div>
+{{/if}}

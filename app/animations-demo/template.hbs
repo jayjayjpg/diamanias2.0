@@ -13,4 +13,11 @@
    </div>
   {{/each}}
   </section>
+  <section class="row">
+   </section>
+  <section class="row">
+    {{#comic-panel-animation-api classNames="col-s12" layerItems=layers as |layer|}}
+      {{layer.content}}
+    {{/comic-panel-animation-api}}
+  </section>
 </div>

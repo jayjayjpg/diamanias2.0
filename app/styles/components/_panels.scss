@@ -143,5 +143,30 @@
       }
     }
   }
+  &.comic-panel-canvas, &.comic-panel-animation-api {
+    canvas {
+      background-color: #f7f7f7;
+    }
+  }
+  &.comic-panel-animation-api {
+    background-color: #f7f7f7;
+    width: 150px;
+    margin: 0 auto;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: 0 0;
+    background-size: auto 200%;
+
+    .play-button {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background-color: #dd77dd;
+ 
+    }
+  }
 }
 

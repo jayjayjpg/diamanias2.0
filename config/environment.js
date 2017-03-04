@@ -8,9 +8,9 @@ module.exports = function(environment) {
     locationType: 'auto',
     contentSecurityPolicy: {
       'style-src': "'self' 'unsafe-inline'",
-      'connect-src': "'self' http://localhost:3000/ https://diadata.herokuapp.com",
-      'frame-src': "'self' http://localhost:3000/",
-      'img-src': ["'self'", "http://localhost:3000/", "https://s3.eu-central-1.amazonaws.com"], // TODO: cors violation - check if to use amazon or rails api instead
+      'connect-src': "'self' http://localhost:2999/ https://diadata.herokuapp.com",
+      'frame-src': "'self' http://localhost:2999/",
+      'img-src': ["'self'", "http://localhost:2999/", "https://s3.eu-central-1.amazonaws.com"], // TODO: cors violation - check if to use amazon or rails api instead
       'script-src': "'self' 'unsafe-eval' https://*.firebaseio.com",
       "font-src":"'self' data: "
     },
@@ -35,7 +35,10 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.host = 'http://localhost:3000/';
+    // ENV.host = 'http://localhost:2999';
+   /* ENV['ember-cli-mirage'] = {
+      enable: true
+    } */
   }
 
   if (environment === 'test') {

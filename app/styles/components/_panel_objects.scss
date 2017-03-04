@@ -1,0 +1,13 @@
+.comic-character {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: 300% auto;
+
+  &.comic-panel__foreground__character {
+    background-size: auto 100%;
+  }
+
+}
